@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web</title>
+    <style>
+        /* Basic styling & centering everything  */
+        body {
+            margin: 0;
+            padding:0;
+            background: #bfb4ff;
+            position: absolute;
+            top: 50%; 
+            left:50% ; 
+            transform: translate(-50%, -50%);
+        }
+
+        /* Make all icons in a row  */
+        ul {
+            display: flex;
+            margin: 0;
+            padding: 70px 0;
+
+        }
+
+        /* Adding margin in all menu icons & removing default list-style-type */
+        ul li {
+            list-style: none;
+            margin: 0 50px;
+        }
+
+        /* Set font size, color, padding, transition on icons ( transition for hover ) */
+        ul li a .fa {
+            font-size: 40px;
+            color: #262626;
+            line-height: 80px;
+            transition: .5s;
+            padding-right: 14px;
+        }
+
+        ul li a .fa-brands{
+            font-size: 40px;
+            color: #0e0c0c;
+            line-height: 80px;
+            transition: .5s;
+            padding-right: 14px;
+        }
+
+        /* add 3d effect on icons  */
+        ul li a {
+            top: 10%  ;  /*---------> size from top */
+            display: block;
+            width: 70px;
+            height: 80px;
+            background: #cecaca;
+            text-align: center;
+            padding-left: 20px;
+            transform: rotate(318deg) skew(199deg) translate(0, 0);
+            transition: .5s;
+            box-shadow: -20px 20px 10px rgba(0, 0, 0, .5);
+        }
+
+        ul li a:before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -20px;
+            height: 100%;
+            width: 20px;
+            background: #8a6f6f;
+            transform: .5s;
+            transform: rotate(0deg) skewY(-45deg);
+        }
+
+        ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: -10px;
+            height: 20px;
+            width: 100%;
+            background: #8a6f6f;
+            transform: .5s;
+            transform: rotate(0deg) skewX(-45deg);
+        }
+
+        /* Add hover effect on icons and change icon color on hover */
+        ul li a:hover {
+            transform: skew(5deg) translate(20px, -50px);
+            box-shadow: -50px 50px 50px rgba(0, 0, 0, .5);
+        }
+
+        ul li:hover .fa {
+            color: #fff;
+        }
+
+       ul li:hover .fa-brands {
+            color: #ffffff ;
+       }
+
+        /* changing background color on hover of each 3d icons  */
+        ul li:hover:nth-child(1) a {
+            background: #3b5998;
+        }
+
+        ul li:hover:nth-child(1) a:before {
+            background: #365492;
+        }
+
+        ul li:hover:nth-child(1) a:after {
+            background: #4a69ad;
+        }
+
+        ul li:hover:nth-child(2) a {
+            background: #34393b;
+        }
+
+        ul li:hover:nth-child(2) a:before {
+            background: #191e20;
+        }
+
+        ul li:hover:nth-child(2) a:after {
+            background: #0c0f11;
+        }
+
+        ul li:hover:nth-child(3) a {
+            background: #e4405f;
+        }
+
+        ul li:hover:nth-child(3) a:before {
+            background: #d81c3f;
+        }
+
+        ul li:hover:nth-child(3) a:after {
+            background: #E4405F;
+        }
+        ul li:hover:nth-child(4) a {
+            background: #f14949;
+        }
+
+        ul li:hover:nth-child(4) a:before {
+            background: #f02121;
+        }
+
+        ul li:hover:nth-child(4) a:after {
+            background: #f00707;
+        }
+
+
+        /*------------------search style--------------------------*/
+
+              /* css for searchbar field  */
+              .searchfield {
+            font-weight: 600;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            outline: none;
+            border: none;
+            background: #fff;
+            color: #111;
+            text-shadow: 0 0 10px #ccc;
+            padding: 0 80px 0 20px;
+            border-radius: 30px;
+            box-shadow: 12px 13px 25px 0 #111, 8px 9px 25px 0 rgba(0, 0, 0, 0.2);
+            transition: all 1s;
+            opacity: 0;
+            z-index: 5;
+            font-weight: bolder;
+            letter-spacing: 0.1em;
+        }
+
+        /* pointer cursor on searchfield hover */
+        .searchfield:hover {
+            cursor: pointer;
+        }
+
+        /* css for search icon and cancel icon  */
+        .search {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            transition: all 1s;
+            z-index: 4;
+        }
+
+        /* pointer cursor on search , cancel icon hover */
+        .search:hover {
+            cursor: pointer;
+        }
+
+        /* search icon  */
+        .search::before {
+            content: "";
+            position: absolute;
+            margin: auto;
+            top: 10px;
+            right: 8px;
+            bottom: -5px;
+            left: 22px;
+            width: 12px;
+            height: 2px;
+            background-color: #111;
+            transform: rotate(45deg);
+        }
+
+        .search::after {
+            content: "";
+            position: absolute;
+            margin: auto;
+            top: -5px;
+            right: 0;
+            bottom: 0;
+            left: -5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid #111;
+        }
+
+        /* expand width of searchfield on focus */
+        .searchfield:focus {
+            width: 300px;
+            opacity: 1;
+            cursor: text;
+        }
+
+        .searchfield:focus~.search {
+            right: -240px;
+            background: transparent;
+            z-index: 6;
+        }
+
+        /* css for cancel icon */
+        .searchfield:focus~.search::before {
+            top: 28px;
+            left: 15px;
+            width: 25px;
+            height: 2px;
+            bottom: 25px;
+        }
+
+        .searchfield:focus~.search::after {
+            top: 29px;
+            left: -8px;
+            width: 25px;
+            right: -15px;
+            height: 2px;
+            border: none;
+            bottom: 25px;
+            background: #111;
+            border-radius: 0%;
+            transform: rotate(-45deg);
+        }
+        .web{
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        
+    </style>
+</head>
+
+<body>
+
+
+    <H1 class="web" >Google Search</H1>
+
+    <form action="https://www.google.com/search" method="get">
+        <input type="text" class="searchfield" name="q" placeholder="Enter search term"/>
+        <div class="search"></div>
+    </form>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        
+    <!-- Markup of social media icons  ------------------------------------------------>
+    <ul>
+        <li>
+            <a href="https://www.facebook.com/login/">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/i/flow/login">
+                <i class="fa-brands fa-x-twitter" aria-hidden="=true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- Markup of social media icons  -->
+    <!-- font awesome cdn  -->
+    <script src="https://kit.fontawesome.com/7321af4e26.js" crossorigin="anonymous"></script>
+    <!-- font awesome cdn  -->
+
+</body>
+
+</html>
